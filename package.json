@@ -1,0 +1,29 @@
+{
+  "name": "rekrastik",
+  "version": "1.0.0",
+  "description": "A bot with fun, music, levelling, moderation and more!",
+  "main": "rekrastik.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "discord-akairo": "^7.5.4",
+    "discord.js": "^11.3.2",
+    "discord.js-lavalink": "^2.0.2",
+    "discord.js-lavalink-musicbot": "0.0.6",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rekrastik/Rekrasik.git"
+  },
+  "author": "BluSpring",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rekrastik/Rekrasik/issues"
+  },
+  "homepage": "https://github.com/Rekrastik/Rekrasik#readme"
+}
