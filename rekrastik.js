@@ -67,7 +67,7 @@ function writeLevel() {
 }
 bot.writeLevel = writeLevel;
 let lastBotMessage = [];
-let retardedUsers = {};
+let dumbUsers = {};
 let count = 1;
 /* // Old JSON settings setup.
 function writeSettings() {
@@ -243,18 +243,18 @@ bot.on('message', async message => {
 		if(!settings[message.guild.id] || !settings[message.guild.id].raidProtection || settings[message.guild.id].raidProtection.enabled == false)
 			return;
 		const Staff = message.guild.roles.find("name", "Staff");
-		const retarded = () => {
-			if(!retardedUsers[message.author.id]) retardedUsers[message.author.id] = [];
-			return retardedUsers[message.author.id];
+		const dumb = () => {
+			if(!dumbUsers[message.author.id]) dumbUsers[message.author.id] = [];
+			return dumbUsers[message.author.id];
 		}
-		const retards = retarded();
+		const dumbs = dumb();
 		const otherDate = `${new Date().getDate()}:${new Date().getMonth()}:${new Date().getYear()}`
 		let count;
 		function countery() {
-			if(!retards[0])
+			if(!dumbs[0])
 				count = 1;
 			else
-				count = Math.floor(retards[0].count + 1);
+				count = Math.floor(dumbs[0].count + 1);
 			
 			return count;
 		}
@@ -272,17 +272,17 @@ bot.on('message', async message => {
 		}
 		message.delete();
 		message.guild.channels.find("name", "logs").send(`${message.author.tag} **[USER]** is using \`@everyone\`, sending an invite or mentioning a role in ${message.channel.toString()}! May be a raid! Message content: \`\`\`\n${message.content}\n\`\`\` (Try mentioning the role that is like \`<@&123456789012345678>\` or something like it.) ${Staff.toString()}, go check on it!`);
-		retards.push({
+		dumbs.push({
 			count: counting,
 			date: otherDate
 		})
 
-		if(retards.length === 2)
-			retards.shift();
+		if(dumbs.length === 2)
+			dumbs.shift();
 		
-		if(retards[0].count > 2 && retards[0].date == otherDate) {
+		if(dumbs[0].count > 2 && dumbs[0].date == otherDate) {
 			message.guild.members.get(message.author.id).ban(`Spamming @everyone and @here, sending an invite or a role over 5 times.`);
-			delete retards;
+			delete dumbs;
 		}
 	}*/
 	/*
